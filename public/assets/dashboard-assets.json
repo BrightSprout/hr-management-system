@@ -1,0 +1,106 @@
+{
+  "dashboard": {
+    "html": "main-dash.php",
+    "styles": [],
+    "scripts": ["live-activity.js"]
+  },
+  "staff-performance": {
+    "html": "performance-hub.php",
+    "styles": [],
+    "scripts": []
+  },
+  "employee-docs": {
+    "html": "staff-documents.php",
+    "styles": [],
+    "scripts": ["staff-document.js"]
+ },
+  "register-approval": {
+    "html": "approval-staff.php",
+    "styles": [],
+    "scripts": ["approval-staff.js"]
+  },
+  "staff-management": {
+    "html": "staff-management.php",
+    "styles": [],
+    "scripts": ["staff-management.js"]
+  },
+  "verification": {
+    "html": "attendance-sheet.php",
+    "styles": [],
+    "scripts": [
+      "pdfmake.min.js",
+      "vfs_fonts.js",
+      "export-pdf.js"
+    ]
+  },
+  "reports": {
+    "html": "report-logs.php",
+    "styles": [],
+    "scripts": [
+      "chart.js",
+      "pdfmake.min.js",
+      "vfs_fonts.js",
+      "report-logs.js"
+    ]
+  },
+  "my-profile": {
+    "html": "my-acc.php",
+    "styles": [],
+    "scripts": []
+  },
+  "add-staff": {
+    "html": "add-staff.php",
+    "styles": ["add-staff-css"],
+    "scripts": ["add-staff.js"]
+  },
+  "view-staff": {
+    "html": "view-staff.php",
+    "styles": [],
+    "scripts": ["view-staff.js"]
+  },
+  "view-staff/personal": {
+    "html": "view-staff_contents/staff-info.php",
+    "styles": [],
+    "scripts": []
+  },
+ "view-staff/attendance": {
+    "html": "view-staff_contents/staff-attendance-record.php",
+    "styles": [],
+    "scripts": []
+  },
+ "view-staff/documents": {
+    "html": "view-staff_contents/staff-documents.php",
+    "styles": [],
+    "scripts": []
+  },
+ "view-staff/leave": {
+    "html": "view-staff_contents/staff-leave-request.php",
+    "styles": [],
+    "scripts": []
+  },
+ "view-staff/reset-password": {
+    "html": "view-staff_contents/staff-set-new-password.php",
+    "styles": [],
+    "scripts": ["view-staff_reset-password.js"]
+  },
+  "view-staff/performance": {
+    "html": "view-staff_contents/staff-performance.php",
+    "styles": [],
+    "scripts": ["chart.js"]
+  },
+  "upload-data": {
+    "html": "upload-data.php",
+    "styles": [],
+    "scripts": ["upload-data.js"]
+  },
+  "manage-attendance": {
+    "html": "attendance-management.php",
+    "styles": ["dashboard.css"],
+    "scripts": ["attendance-management.js"]
+  },
+  "department": {
+    "html": "department-management.php",
+    "styles": [],
+    "scripts": ["attendance-management.js"]
+  }
+}

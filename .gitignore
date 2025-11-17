@@ -1,0 +1,7 @@
+/vendor
+composer.phar
+.env
+composer.lock
+node_modules
+package-lock.json
+bash.exe.stackdump
