@@ -95,7 +95,6 @@
         "username" => $user["username"], 
         "password" => $user["password"],
         "role" => $user["role"],
-        "profile_id" => $user["profile_id"],
       ]);
     }
 
