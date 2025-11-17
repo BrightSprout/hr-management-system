@@ -21,7 +21,10 @@ if (file_exists(__DIR__ . '/.env')) {
 $basePath = dirname($_SERVER["SCRIPT_NAME"]);
 
 $parsed_url = parse_url($_SERVER["REQUEST_URI"]);
-$path = rtrim($parsed_url["path"], "/");
+$path = rtrim(str_replace($basePath, "", $parsed_url["path"]), "/"); 
+if ($_ENV["PHP_ENV"] == "prod") { 
+  $path = rtrim($parsed_url["path"], "/");
+}
 if ($path === "")
   $path = "/";
 
