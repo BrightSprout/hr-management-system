@@ -89,7 +89,7 @@
       $db = DB::connect(); 
       $json = json_decode(file_get_contents('php://input'),true);
 
-      $newPassword = hash_hmac("sha256", $json["new_password"], $_ENV["PEPPER_KEY"]);
+      $newPassword = hash_hmac("sha256", $json["new_password"], getenv("PEPPER_KEY"));
       
       return [
         "success" => UserModel::updatePassword($db, [

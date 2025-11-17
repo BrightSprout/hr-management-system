@@ -21,21 +21,21 @@
       // I've decided to not put the other try-catch inside the this catch, it kinda looks good in this way :)
       if ($accessToken) {
         try {
-          $decoded = JWT::decode($accessToken, new Key($_ENV["JWT_ACCESS_KEY"], "HS256"));
+          $decoded = JWT::decode($accessToken, new Key(getenv("JWT_ACCESS_KEY"), "HS256"));
           return $next(new UserModel(json_decode(json_encode($decoded->sub), true)));
         } catch (SignatureInvalidException | ExpiredException | BeforeValidException) {}
       }
 
       try {
-          $decoded = JWT::decode($refreshToken, new Key($_ENV["JWT_REFRESH_KEY"], "HS256"));
+          $decoded = JWT::decode($refreshToken, new Key(getenv("JWT_REFRESH_KEY"), "HS256"));
           $encoded = JWT::encode([
             "sub" => $decoded->sub,
             "exp" => time() + 900
-          ], $_ENV["JWT_ACCESS_KEY"], "HS256");
+          ], getenv("JWT_ACCESS_KEY"), "HS256");
           setcookie("access_token", $encoded, time() + 900, "/", "", true, true);
           return $next(new UserModel(json_decode(json_encode($decoded->sub), true)));
         } catch (SignatureInvalidException | ExpiredException | BeforeValidException $e) {
-          throw new \Exception("Invalid or expired refresh token" . $_ENV["JWT_REFRESH_KEY"]);
+          throw new \Exception("Invalid or expired refresh token" . getenv("JWT_REFRESH_KEY"));
         }
       }
   }

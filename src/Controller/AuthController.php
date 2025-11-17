@@ -18,7 +18,7 @@
         ]
       );
 
-      $pwdPeppered = hash_hmac("sha256", $json["password"], $_ENV["PEPPER_KEY"]);
+      $pwdPeppered = hash_hmac("sha256", $json["password"], getenv("PEPPER_KEY"));
       if (!password_verify($pwdPeppered, $user->password)) {
         throw new \Exception("Password does not match!");
       }
@@ -41,8 +41,8 @@
         "exp" => time() + 604800 // 7 days
       ];
       
-      $accessToken = JWT::encode($payload, $_ENV["JWT_ACCESS_KEY"], "HS256");
-      $refreshToken = JWT::encode($refreshPayload, $_ENV["JWT_REFRESH_KEY"], "HS256");
+      $accessToken = JWT::encode($payload, getenv("JWT_ACCESS_KEY"), "HS256");
+      $refreshToken = JWT::encode($refreshPayload, getenv("JWT_REFRESH_KEY"), "HS256");
 
       setcookie("access_token", $refreshToken, time() + 900, "/", "", true, true);
       setcookie("refresh_token", $refreshToken, time() + 604800, "/", "", true, true);

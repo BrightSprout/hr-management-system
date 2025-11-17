@@ -418,7 +418,7 @@
       $db->begin_transaction();
       try {
         $password = PasswordGenerator::generate(10);
-        $pwdPeppered = hash_hmac("sha256", $password, $_ENV["PEPPER_KEY"]);  
+        $pwdPeppered = hash_hmac("sha256", $password, getenv("PEPPER_KEY"));  
         $user = UserModel::create($db,
           [
             "id" => UUIDGenerator::v4(),

@@ -3,10 +3,10 @@
   
   class DB {
     public static function connect(): \mysqli {
-      $server = $_ENV["DB_HOST"];
-      $username = $_ENV["DB_USER"];
-      $password = $_ENV["DB_PASS"];
-      $database = $_ENV["DB_NAME"];
+      $server = getenv("DB_HOST");
+      $username = getenv("DB_USER");
+      $password = getenv("DB_PASS");
+      $database = getenv("DB_NAME");
 
       return mysqli_connect($server,$username,$password,$database);
     }

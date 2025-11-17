@@ -13,8 +13,10 @@ use App\Helper\RedirectDef;
 
 date_default_timezone_set("UTC");
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+if (file_exists(__DIR__ . '/.env')) {
+  $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+  $dotenv->load();
+}
 
 $basePath = dirname($_SERVER["SCRIPT_NAME"]);
 
@@ -102,15 +104,15 @@ $API_PATH = [
     [AuthMiddleware::class, allowedRoles(["GMAC","HR"])],
     function() {
       $publicId = $_GET["public_id"];
-      $secret = $_ENV["CLOUDINARY_API_SECRET"];
+      $secret = getenv("CLOUDINARY_API_SECRET");
       $timestamp = time();
       $folder = "documents";
       $signature = sha1("folder=$folder&overwrite=false&public_id=$publicId&timestamp=$timestamp&unique_filename=false" . $secret);
       return [
         "timestamp" => $timestamp,
         "signature" => $signature,
-        "api_key" => $_ENV["CLOUDINARY_API_KEY"], 
-        "cloud_name" => $_ENV["CLOUDINARY_CLOUDNAME"],
+        "api_key" => getenv("CLOUDINARY_API_KEY"), 
+        "cloud_name" => getenv"CLOUDINARY_CLOUDNAME"),
         "folder" => $folder
       ]; 
   }),
