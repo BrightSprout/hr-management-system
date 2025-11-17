@@ -112,7 +112,7 @@ $API_PATH = [
         "timestamp" => $timestamp,
         "signature" => $signature,
         "api_key" => getenv("CLOUDINARY_API_KEY"), 
-        "cloud_name" => getenv"CLOUDINARY_CLOUDNAME"),
+        "cloud_name" => getenv("CLOUDINARY_CLOUDNAME"),
         "folder" => $folder
       ]; 
   }),
