@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . "/vendor/autoload.php";
+require_once __DIR__ . "/../vendor/autoload.php";
 
 use App\Model\UserModel;
 use App\Controller\AuthController;
@@ -13,7 +13,7 @@ use App\Helper\RedirectDef;
 
 date_default_timezone_set("UTC");
 
-if (file_exists(__DIR__ . '/.env')) {
+if (file_exists(__DIR__ . '/../.env')) {
   $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
   $dotenv->load();
 }
