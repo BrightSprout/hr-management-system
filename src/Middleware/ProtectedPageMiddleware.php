@@ -9,7 +9,7 @@
         (new AuthMiddleware())->handle($next);   
       } catch (\Throwable $e) {
         header("Location: login", true, 302);
-        exit();
+        exit;
       }  
     }
   }
