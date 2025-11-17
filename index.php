@@ -392,6 +392,10 @@ function runRoute($method, $path)
   $routes = findPath($path);
   $requestString = "$method $path";
 
+  if ($_ENV["PHP_ENV"] == "dev") {
+    echo $routes . " / " .  $requestString;
+  }
+
   if (!isset($routes[$requestString])) {
     echo "Page not found.";
     http_response_code(404);
@@ -409,6 +413,9 @@ function runRoute($method, $path)
       echo $output;
     } 
   } catch (\Throwable $error) {
+    if ($_ENV["PHP_ENV"] == "dev") {
+      echo $error->getMessage();
+    }
     http_response_code(500);
   }
 }
